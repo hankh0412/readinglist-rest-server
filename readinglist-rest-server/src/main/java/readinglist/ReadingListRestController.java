@@ -21,15 +21,11 @@ class ReadingListRestController {
 	@Autowired
 	private BookRepository bookRepository;
 
-
 	@CrossOrigin(origins = "http://localhost:8002")
 	@RequestMapping(method = RequestMethod.GET)
-	//Iterable<ReadingList> getBooks(@PageableDefault(sort = { "readinglist_id" }, direction = Direction.DESC, size = 2) Pageable pageable) {
 	Page<Book> getBooks(Pageable pageable) {
-		
 		return this.bookRepository.findAll(pageable);
 	}
-	
 	
 	@CrossOrigin(origins = "http://localhost:8002")
 	@RequestMapping(method = RequestMethod.GET, value = "/{bookId}")
@@ -39,17 +35,4 @@ class ReadingListRestController {
 		return this.readingListRepository.findByBook(book);
 	}
 	
-	
-
-/*
-	@RequestMapping(method = RequestMethod.GET, value = "/{bookmarkId}")
-	Bookmark readBookmark(@PathVariable String userId, @PathVariable Long bookmarkId) {
-		this.validateUser(userId);
-		return this.bookmarkRepository.findOne(bookmarkId);
-	}
-
-	private void validateUser(String userId) {
-		this.accountRepository.findByUsername(userId).orElseThrow(
-				() -> new UserNotFoundException(userId));
-	}*/
 }

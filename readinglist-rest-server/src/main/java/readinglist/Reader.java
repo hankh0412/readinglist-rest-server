@@ -1,7 +1,5 @@
 package readinglist;
 
-import java.util.Arrays;
-import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -17,9 +15,6 @@ public class Reader  {
     @JsonIgnore
     private String password;
     
-    //@OneToMany(mappedBy = "reader")
-    //private List<ReadingList> readingList = new ArrayList<ReadingList>();
-
 
     public String getUsername() {
         return username;
@@ -44,8 +39,6 @@ public class Reader  {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    
 
 	@Override
 	public String toString() {
