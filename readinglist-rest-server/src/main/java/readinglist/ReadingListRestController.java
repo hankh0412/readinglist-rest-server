@@ -23,7 +23,7 @@ class ReadingListRestController {
 
 	@CrossOrigin(origins = "http://localhost:8002")
 	@RequestMapping(method = RequestMethod.GET)
-	Page<Book> getBooks(Pageable pageable) {
+	Page<BookWithRating> getBooks(Pageable pageable) {
 		return this.bookRepository.findAll(pageable);
 	}
 	
