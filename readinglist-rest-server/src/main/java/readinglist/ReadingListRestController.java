@@ -5,15 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.http.ResponseEntity;
 
-@RepositoryRestController
+@RestController
 @RequestMapping("/")
 class ReadingListRestController {
 
@@ -25,10 +23,10 @@ class ReadingListRestController {
 
 	@CrossOrigin(origins = "http://localhost:8002")
 	@RequestMapping(method = RequestMethod.GET)
-	ResponseEntity<?>  getBooks(Pageable pageable) {
-		Page<BookWithRating> books = bookRepository.findAllWithRating(pageable);
-		return ResponseEntity.ok(books);
+	Page<BookWithRating> getBooks(Pageable pageable) {
+		 return this.bookRepository.findAllWithRating(pageable);
 	}
+	
 	
 	@CrossOrigin(origins = "http://localhost:8002")
 	@RequestMapping(method = RequestMethod.GET, value = "/{bookId}")
