@@ -27,7 +27,7 @@ class ReadingListRestController {
 		 return this.bookRepository.findAllWithRating(pageable);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:8002")
+	@CrossOrigin
 	@RequestMapping(method = RequestMethod.GET, value = "/{bookId}")
 	List<ReadingList> getReadingList(@PathVariable Long bookId) {
 		Book book = new Book();
