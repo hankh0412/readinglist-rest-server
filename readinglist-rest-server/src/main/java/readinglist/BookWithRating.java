@@ -2,12 +2,12 @@ package readinglist;
 
 import org.springframework.data.rest.core.config.Projection;
 
-@Projection(name = "BookWithRating", types = { Book.class }) 
-interface BookWithRating { 
+@Projection(name = "BookWithRating", types = { Book.class })
+interface BookWithRating {
 
-  Float getRating(); 
-  
-  String getReview();
+    Float getRating();
 
-  Book getBook(); 
+    String getReview();
+
+    Book getBook();
 }

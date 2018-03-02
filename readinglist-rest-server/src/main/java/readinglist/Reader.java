@@ -6,15 +6,14 @@ import javax.persistence.Id;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Reader  {
+public class Reader {
 
-	@Id
+    @Id
     private String username;
     private String fullname;
-    
+
     @JsonIgnore
     private String password;
-    
 
     public String getUsername() {
         return username;
@@ -40,9 +39,9 @@ public class Reader  {
         this.password = password;
     }
 
-	@Override
-	public String toString() {
-		return "Reader [username=" + username + ", fullname=" + fullname + ", password=" + password + "]";
-	}
+    @Override
+    public String toString() {
+        return "Reader [username=" + username + ", fullname=" + fullname + ", password=" + password + "]";
+    }
 
 }

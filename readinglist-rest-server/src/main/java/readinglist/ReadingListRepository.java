@@ -6,8 +6,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface ReadingListRepository extends PagingAndSortingRepository<ReadingList, Long> {
-	
-	@Query("select rl from ReadingList rl join fetch rl.reader join fetch rl.book where rl.book = ?1 ")
-	List<ReadingList> findByBook(Book book);
+
+    @Query("  select rl "
+            + "from ReadingList rl "
+            + "join fetch rl.reader "
+            + "join fetch rl.book "
+            + "where rl.book = ?1 ")
+    List<ReadingList> findByBook(Book book);
 
 }
